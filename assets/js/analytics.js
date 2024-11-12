@@ -1,13 +1,34 @@
-$(document).ready(function() {
-    $('#signup').on('click', function() {
+$(document).ready(function () {
+    function pushEvent(eventName, eventParams = {}) {
+
+        eventParams['app_name'] = 'AnalyticsKT';
+        eventParams['webpage'] = window.location.pathname === '/' ?? 'home';
+
         gtag(
             'event',
-            'click_signup',
-            {
-                'app_name': 'AnalyticsKT',
-                'webpage': window.location.pathname === '/' ?? 'home',
-                'touchpoint': 'signup'
-            }
+            eventName,
+            eventParams
         );
+    }
+
+
+    $('#signup').on('click', function () {
+        pushEvent('click_signup');
+    })
+
+    $(window).on('load', function () {
+        pushEvent('page_view')
+    })
+
+    $('#signinForm').on('submit', function (e) {
+        e.preventDefault()
+        pushEvent(
+            'signin',
+            {
+                email: $('#floatingInput').val(),
+                firstName: $('#floatingFirstName').val(),
+                lastName: $('#floatingLastName').vale()
+            }
+        )
     })
 })
