@@ -27,7 +27,7 @@ $(document).ready(function () {
             {
                 email: $('#floatingInput').val(),
                 firstName: $('#floatingFirstName').val(),
-                lastName: $('#floatingLastName').vale()
+                lastName: $('#floatingLastName').val()
             }
         )
     })
