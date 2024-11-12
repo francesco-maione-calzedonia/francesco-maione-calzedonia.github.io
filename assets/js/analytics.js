@@ -2,7 +2,7 @@ $(document).ready(function () {
     function pushEvent(eventName, eventParams = {}) {
 
         eventParams['app_name'] = 'AnalyticsKT';
-        eventParams['webpage'] = window.location.pathname === '/' ?? 'home';
+        eventParams['webpage'] = window.location.pathname === '/' ? 'home' : window.location.pathname;
 
         gtag(
             'event',
