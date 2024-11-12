@@ -1,3 +1,13 @@
 $(document).ready(function() {
-    // here
+    $('#signup').on('click', function() {
+        gtag(
+            'event',
+            'click_signup',
+            {
+                'app_name': 'AnalyticsKT',
+                'webpage': window.location.pathname === '/' ?? 'home',
+                'touchpoint': 'signup'
+            }
+        );
+    })
 })
